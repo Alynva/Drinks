@@ -1,6 +1,11 @@
 package com.alynva.drinks.drinks.entities
 
-data class Drink(val idDrink: String,
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+
+@Entity
+data class Drink(@PrimaryKey
+                 val idDrink: Int,
                  val strDrink: String,
                  val strDrinkThumb: String,
                  val strCategory: String?,
