@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.alynva.drinks.drinks.SplashActivity">
+    tools:context="com.alynva.drinks.drinks.scenarios_splash.SplashActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,8 +32,8 @@
 
         <ImageView
             android:id="@+id/iv_splash_gif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_above="@+id/tv_splash_gif_text"
