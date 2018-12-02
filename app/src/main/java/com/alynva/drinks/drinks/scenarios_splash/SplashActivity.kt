@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.alynva.drinks.drinks.R
+import com.alynva.drinks.drinks.database.AppDatabase
 import com.alynva.drinks.drinks.entities.Drink
 import com.alynva.drinks.drinks.utils.GlideApp
 import kotlinx.android.synthetic.main.activity_splash.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 
 class SplashActivity : AppCompatActivity(), SplashContract.View {
@@ -32,8 +35,18 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
     }
 
     override fun saveList(drinks: List<Drink>) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         Toast.makeText(this, "Lista recebida", Toast.LENGTH_LONG).show()
+
+        doAsync {
+            val drinkDao = AppDatabase.getInstance(this@SplashActivity).drinkDao()
+            for (drink in drinks) {
+                drinkDao.insert(drink)
+            }
+
+            uiThread {
+                Toast.makeText(this@SplashActivity, "Lista salva", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun showMessage(msg: String) {

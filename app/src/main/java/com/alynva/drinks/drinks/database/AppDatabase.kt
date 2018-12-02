@@ -7,23 +7,27 @@ import android.content.Context
 import com.alynva.drinks.drinks.entities.Drink
 
 @Database(entities = arrayOf(Drink::class), version = 1)
-public abstract class AppDatabase: RoomDatabase() {
+public abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private val DB_NAME = "drink.db"
         private var instance: AppDatabase? = null
 
         private fun create(context: Context): AppDatabase? {
-            return Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).build()
+            return Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java,
+                    DB_NAME).build()
         }
 
-        public fun getInstance(constext: Context): AppDatabase {
-            if (instance == null) {
-                instance = create(constext)
-            }
+        public fun getInstance(context: Context): AppDatabase {
+            if (instance == null)
+                instance = create(context)
             return instance!!
         }
+
     }
 
     public abstract fun drinkDao(): DrinkDao
+
 }
