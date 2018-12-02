@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".scenarios_splash.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
