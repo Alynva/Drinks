@@ -2,6 +2,7 @@ package com.alynva.drinks.drinks.scenarios_splash
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.alynva.drinks.drinks.R
 import com.alynva.drinks.drinks.entities.Drink
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 
 class SplashActivity : AppCompatActivity(), SplashContract.View {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -36,6 +38,14 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
     override fun showMessage(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun hideLoader() {
+        pb_loader.visibility = ProgressBar.INVISIBLE
+    }
+
+    override fun showLoader() {
+        pb_loader.visibility = ProgressBar.VISIBLE
     }
 
 }

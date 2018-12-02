@@ -7,6 +7,8 @@ interface SplashContract {
     interface View {
         fun saveList(drinks: List<Drink>)
         fun showMessage(msg: String)
+        fun hideLoader()
+        fun showLoader()
 
     }
 
