@@ -5,11 +5,11 @@ import com.alynva.drinks.drinks.entities.Drink
 
 @Dao
 interface DrinkDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(drink: Drink)
 
-    @Query("SELECT * from drink")
-    fun getAll(): List<Drink>
+//    @Query("SELECT * from drink.db")
+//    fun getAll(): List<Drink>
 
 //    @Update
 //    fun update(drink: Drink)
@@ -17,6 +17,6 @@ interface DrinkDao {
 //    @Delete
 //    fun delete(drink: Drink)
 
-    @Query("SELECT * from drink WHERE idDrink = :id")
-    fun getDrink(id: Int)
+//    @Query("SELECT * from drink WHERE idDrink = :id")
+//    fun getDrink(id: Int)
 }
