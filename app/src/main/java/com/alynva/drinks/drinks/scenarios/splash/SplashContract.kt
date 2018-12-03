@@ -1,4 +1,4 @@
-package com.alynva.drinks.drinks.scenarios_splash
+package com.alynva.drinks.drinks.scenarios.splash
 
 import com.alynva.drinks.drinks.entities.Drink
 
@@ -13,6 +13,6 @@ interface SplashContract {
     }
 
     interface Presenter {
-        fun onLoadList()
+        fun onLoadData()
     }
 }

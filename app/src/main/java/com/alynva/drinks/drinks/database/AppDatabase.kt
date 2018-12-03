@@ -6,8 +6,8 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.alynva.drinks.drinks.entities.Drink
 
-@Database(entities = arrayOf(Drink::class), version = 1)
-public abstract class AppDatabase : RoomDatabase() {
+@Database(entities = [(Drink::class)], version = 1)
+abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private val DB_NAME = "drink.db"
@@ -20,7 +20,7 @@ public abstract class AppDatabase : RoomDatabase() {
                     DB_NAME).build()
         }
 
-        public fun getInstance(context: Context): AppDatabase {
+        fun getInstance(context: Context): AppDatabase {
             if (instance == null)
                 instance = create(context)
             return instance!!
@@ -28,6 +28,6 @@ public abstract class AppDatabase : RoomDatabase() {
 
     }
 
-    public abstract fun drinkDao(): DrinkDao
+    abstract fun drinkDao(): DrinkDao
 
 }

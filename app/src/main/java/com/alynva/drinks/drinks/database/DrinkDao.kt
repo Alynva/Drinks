@@ -8,8 +8,8 @@ interface DrinkDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(drink: Drink)
 
-//    @Query("SELECT * from drink.db")
-//    fun getAll(): List<Drink>
+    @Query("SELECT * from drink")
+    fun getAll(): List<Drink>
 
 //    @Update
 //    fun update(drink: Drink)

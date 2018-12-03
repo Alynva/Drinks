@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.alynva.drinks.drinks.scenarios_splash.SplashActivity">
+    tools:context=".scenarios.splash.SplashActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,10 +11,11 @@
         <ImageView
             android:id="@+id/iv_splash_bg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:contentDescription="@string/splash_background" />
 
         <TextView
-            android:textSize="7dp"
+            android:textSize="7sp"
             android:textAlignment="textEnd"
             android:id="@+id/tv_splash_bg_text"
             android:layout_width="wrap_content"
@@ -37,7 +37,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_above="@+id/tv_splash_gif_text"
-            android:layout_marginBottom="9dp" />
+            android:layout_marginBottom="9dp"
+            android:contentDescription="@string/splash_gif" />
 
         <TextView
             android:id="@+id/tv_splash_gif_text"

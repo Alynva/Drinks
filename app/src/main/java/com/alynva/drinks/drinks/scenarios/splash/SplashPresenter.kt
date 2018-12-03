@@ -1,6 +1,5 @@
-package com.alynva.drinks.drinks.scenarios_splash
+package com.alynva.drinks.drinks.scenarios.splash
 
-import android.widget.Toast
 import com.alynva.drinks.drinks.entities.DrinksList
 import com.alynva.drinks.drinks.network.RetrofitInicializer
 import retrofit2.Call
@@ -9,7 +8,7 @@ import retrofit2.Response
 
 class SplashPresenter(val view : SplashContract.View) : SplashContract.Presenter {
 
-    override fun onLoadList() {
+    override fun onLoadData() {
 
         view.showLoader()
 

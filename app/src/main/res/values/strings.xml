@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Drinks</string>
+    <string name="drink_thumb">drink_thumb</string>
+    <string name="drinks_alco_licos">Drinks alcoólicos</string>
+    <string name="splash_background">Splash background</string>
+    <string name="splash_gif">Splash gif</string>
 </resources>
