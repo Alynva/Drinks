@@ -2,6 +2,7 @@ package com.alynva.drinks.drinks.entities
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Drink(@PrimaryKey
@@ -13,4 +14,4 @@ data class Drink(@PrimaryKey
                  val strGlass: String?,
                  val strInstructions: String?,
                  val strIngredient1: String?,
-                 val strMeasure1: String?)
+                 val strMeasure1: String?) : Serializable
