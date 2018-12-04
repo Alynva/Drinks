@@ -2,6 +2,7 @@ package com.alynva.drinks.drinks.scenarios.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.alynva.drinks.drinks.R
@@ -20,15 +21,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun showList(list: List<Drink>) {
-        val adapter = DrinkAdapter(this, list)
 
-        adapter.setOnItenClickListener { id ->
-            Toast.makeText(this, "Detalhes do item $id", Toast.LENGTH_SHORT).show()
-        }
+        val fragmentDrinksList = DrinksListFragment.newInstance(list as ArrayList<Drink>)
 
-        val layoutManager = LinearLayoutManager(this)
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fmMaster, fragmentDrinksList)
+                .commit()
 
-        rvDrinks.adapter = adapter
-        rvDrinks.layoutManager = layoutManager
+
     }
 }

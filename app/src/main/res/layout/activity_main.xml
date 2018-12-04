@@ -12,26 +12,9 @@
         android:layout_gravity="center"
         android:visibility="invisible" />
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/fmMaster"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:text="@string/drinks_alco_licos"
-            android:textSize="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="18dp"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvDrinks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:itenlist="@layout/list_drink_iten">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
