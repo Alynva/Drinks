@@ -3,6 +3,8 @@ package com.alynva.drinks.drinks.scenarios.main
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.alynva.drinks.drinks.R
@@ -88,6 +90,21 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
     }
     override fun showMessage(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_random -> {
+                presenter.onLoadRandom(this)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

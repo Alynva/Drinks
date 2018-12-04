@@ -14,6 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainPresenter(val view: MainContract.View): MainContract.Presenter {
+
     override fun onLoadList(context: Context) {
         val drinksDao = AppDatabase.getInstance(context).drinkDao()
         doAsync {
@@ -63,6 +64,33 @@ class MainPresenter(val view: MainContract.View): MainContract.Presenter {
                 view.showDetails(drink)
             }
         }
+    }
+
+
+    override fun onLoadRandom(context: Context) {
+        view.showLoader()
+
+        val drinksService = RetrofitInicializer().createDrinksService()
+
+        val call = drinksService.getRandomDrink()
+
+        call.enqueue(object : Callback<DrinksList> {
+            override fun onResponse(call: Call<DrinksList>?, response: Response<DrinksList>?) {
+                view.hideLoader()
+                if (response?.body() != null) {
+                    Log.d("presenter -> view", "saveDrink")
+                    view.saveDrink(response.body()!!.drinks[0])
+                } else {
+                    view.showMessage("O drink não foi encontrado.")
+                }
+            }
+
+            override fun onFailure(call: Call<DrinksList>?, t: Throwable?) {
+                view.hideLoader()
+                view.showMessage("Falha na conexão. Verifique o acesso a internet.")
+            }
+
+        })
     }
 
 }

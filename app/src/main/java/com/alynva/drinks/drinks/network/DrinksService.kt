@@ -12,7 +12,7 @@ interface DrinksService {
             //https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=13060
 
     @GET("random.php")
-    fun getRandomDrink()
+    fun getRandomDrink(): Call<DrinksList>
 
     @GET("filter.php?a=Alcoholic")
     fun getAlcoholicDrinks(): Call<DrinksList>

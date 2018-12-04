@@ -18,6 +18,7 @@ interface MainContract {
         fun onLoadList(context: Context)
         fun onUpdateDetails(context: Context, idDrink: Int)
         fun onLoadDetails(context: Context, idDrink: Int)
+        fun onLoadRandom(context: Context)
     }
 
 }
