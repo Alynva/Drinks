@@ -3,6 +3,7 @@ package com.alynva.drinks.drinks.scenarios.splash
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.alynva.drinks.drinks.R
@@ -44,7 +45,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
     }
 
     override fun saveList(drinks: List<Drink>) {
-        Toast.makeText(this, "Lista recebida", Toast.LENGTH_LONG).show()
+        Log.d("splash", "Lista recebida")
 
         doAsync {
             val drinkDao = AppDatabase.getInstance(this@SplashActivity).drinkDao()
@@ -53,7 +54,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
             }
 
             uiThread {
-                Toast.makeText(this@SplashActivity, "Lista salva", Toast.LENGTH_SHORT).show()
+                Log.d("splash", "Lista salva")
                 startMainActivity()
             }
         }

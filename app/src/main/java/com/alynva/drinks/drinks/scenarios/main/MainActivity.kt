@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
     }
 
     override fun showList(list: List<Drink>) {
+        Log.d("main", "Fragment list iniciado")
 
         val fragmentDrinksList = DrinksListFragment.newInstance(list as ArrayList<Drink>)
 
@@ -37,13 +38,16 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
     override fun onFragmentInteraction(idDrink: Int) {
 
         showLoader()
+
+        Log.d("main", "onFragmentInteraction")
         doAsync {
             val drinkDao = AppDatabase.getInstance(this@MainActivity).drinkDao()
             val drink = drinkDao.getDrink(idDrink)
             if (drink.strCategory == null) {
+                Log.d("main -> presenter", "onUpdateDetails")
                 presenter.onUpdateDetails(this@MainActivity, idDrink)
             } else {
-                Log.d("details", "onLoadDetails")
+                Log.d("main -> presenter", "onLoadDetails")
                 presenter.onLoadDetails(this@MainActivity, drink.idDrink)
             }
         }
@@ -51,12 +55,12 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
     }
 
     override fun saveDrink(drink: Drink) {
-        Log.d("details", "Drink quer ser salvo")
+        Log.d("main", "Drink quer ser salvo")
         showLoader()
         doAsync {
             val drinkDao = AppDatabase.getInstance(this@MainActivity).drinkDao()
             drinkDao.insert(drink)
-            Log.d("details", "Drink salvo")
+            Log.d("main", "Drink salvo")
 
             uiThread {
                 hideLoader()
@@ -66,7 +70,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
     }
 
     override fun showDetails(drink: Drink) {
-        Log.d("details", "Fragment iniciado")
+        Log.d("main", "Fragment details iniciado")
         val fragmentDetail = DrinksDetailFragment.newInstance(drink)
 
         supportFragmentManager.beginTransaction()

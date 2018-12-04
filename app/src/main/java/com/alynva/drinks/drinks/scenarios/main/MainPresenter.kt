@@ -36,7 +36,7 @@ class MainPresenter(val view: MainContract.View): MainContract.Presenter {
             override fun onResponse(call: Call<DrinksList>?, response: Response<DrinksList>?) {
                 view.hideLoader()
                 if (response?.body() != null) {
-                    Log.d("details", "Eu mandei o drink ${response.body()!!.drinks[0].strDrink} ser salvo")
+                    Log.d("presenter -> view", "saveDrink")
                     view.saveDrink(response.body()!!.drinks[0])
                 } else {
                     view.showMessage("O drink não foi encontrado.")
@@ -50,13 +50,15 @@ class MainPresenter(val view: MainContract.View): MainContract.Presenter {
         })
     }
     override fun onLoadDetails(context: Context, idDrink: Int) {
-        val drinksDao = AppDatabase.getInstance(context).drinkDao()
-        Log.d("details", "Detalhes querem ser carregados $idDrink")
+
+        Log.d("presenter", "onLoadDetails")
         view.showLoader()
+
         doAsync {
+            val drinksDao = AppDatabase.getInstance(context).drinkDao()
             val drink = drinksDao.getDrink(idDrink)
-            Log.d("details", "$idDrink carregado")
             uiThread {
+                Log.d("presenter -> view", "showDetails")
                 view.hideLoader()
                 view.showDetails(drink)
             }
