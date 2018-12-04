@@ -46,7 +46,6 @@ class DrinksListFragment : Fragment() {
             val adapter = DrinkAdapter(that, list)
 
             adapter.setOnItenClickListener { id ->
-                Toast.makeText(that, "Detalhes do item $id", Toast.LENGTH_SHORT).show()
                 listener?.onFragmentInteraction(id)
             }
 

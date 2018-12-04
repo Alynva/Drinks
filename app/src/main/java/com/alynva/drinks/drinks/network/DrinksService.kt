@@ -1,6 +1,5 @@
 package com.alynva.drinks.drinks.network
 
-import com.alynva.drinks.drinks.entities.Drink
 import com.alynva.drinks.drinks.entities.DrinksList
 import retrofit2.Call
 import retrofit2.http.GET

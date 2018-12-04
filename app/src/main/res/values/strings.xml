@@ -1,12 +1,9 @@
 <resources>
     <string name="app_name">Drinks</string>
     <string name="drink_thumb">drink_thumb</string>
-    <string name="drinks_alco_licos">Drinks alcoólicos</string>
+    <string name="drinks_alco_licos">Alcoholic drinks</string>
     <string name="splash_background">Splash background</string>
     <string name="splash_gif">Splash gif</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="ingredientes">Ingredientes</string>
-    <string name="instru_es">Instruções</string>
+    <string name="ingredientes">Ingredients</string>
+    <string name="instru_es">Instructions</string>
 </resources>

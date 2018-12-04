@@ -47,8 +47,8 @@ class DrinksDetailFragment : Fragment() {
         }
 
         tv_drink_detail_nome.text = drink.strDrink
-        tv_drink_detail_id.text = drink.idDrink.toString()
-        tv_drink_detail_cat_alco.text = "${drink.strCategory} * ${drink.strAlcoholic}"
+        tv_drink_detail_id.text = "#${drink.idDrink.toString()}"
+        tv_drink_detail_cat_alco.text = "${drink.strCategory} • ${drink.strAlcoholic}"
         tv_drink_detail_instru.text = drink.strInstructions
 
     }
