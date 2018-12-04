@@ -9,9 +9,9 @@ data class Drink(@PrimaryKey
                  val idDrink: Int,
                  val strDrink: String,
                  val strDrinkThumb: String,
-                 val strCategory: String?,
-                 val strAlcoholic: String?,
-                 val strGlass: String?,
-                 val strInstructions: String?,
-                 val strIngredient1: String?,
-                 val strMeasure1: String?) : Serializable
+                 val strCategory: String? = null,
+                 val strAlcoholic: String? = null,
+                 val strGlass: String? = null,
+                 val strInstructions: String? = null,
+                 val strIngredient1: String? = null,
+                 val strMeasure1: String? = null) : Serializable

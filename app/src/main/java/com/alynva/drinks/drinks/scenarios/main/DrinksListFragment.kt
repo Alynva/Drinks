@@ -1,6 +1,7 @@
 package com.alynva.drinks.drinks.scenarios.main
 
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -29,6 +30,7 @@ class DrinksListFragment : Fragment() {
 
     }
 
+    var listener: OnFragmentInteractionListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -45,6 +47,7 @@ class DrinksListFragment : Fragment() {
 
             adapter.setOnItenClickListener { id ->
                 Toast.makeText(that, "Detalhes do item $id", Toast.LENGTH_SHORT).show()
+                listener?.onFragmentInteraction(id)
             }
 
             val layoutManager = LinearLayoutManager(that)
@@ -55,12 +58,31 @@ class DrinksListFragment : Fragment() {
 
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        if (context is DrinksListFragment.OnFragmentInteractionListener)
+            listener = context
+        else
+            throw RuntimeException(context.toString()+" must implement DrinksListFragment.OnFragmentInteractionListener")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
+        listener = null
+    }
+
     fun getDrinksList() : ArrayList<Drink> {
         val list = arguments?.getSerializable(ARG_LIST) as ArrayList<Drink>?
         if (list == null) {
             throw NullPointerException("Drinks list can not be null")
         }
         return list
+    }
+
+    interface OnFragmentInteractionListener {
+        fun onFragmentInteraction(idDrink: Int)
     }
 
 }// Required empty public constructor

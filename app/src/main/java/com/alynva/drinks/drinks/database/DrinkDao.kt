@@ -17,6 +17,6 @@ interface DrinkDao {
 //    @Delete
 //    fun delete(drink: Drink)
 
-//    @Query("SELECT * from drink WHERE idDrink = :id")
-//    fun getDrink(id: Int)
+    @Query("SELECT * from drink WHERE idDrink = :id")
+    fun getDrink(id: Int): Drink
 }

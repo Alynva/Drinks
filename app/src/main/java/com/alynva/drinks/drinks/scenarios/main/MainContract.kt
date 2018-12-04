@@ -7,11 +7,17 @@ interface MainContract {
 
     interface View {
         fun showList(list: List<Drink>)
+        fun showDetails(drink: Drink)
+        fun showLoader()
+        fun hideLoader()
+        fun showMessage(msg : String)
+        fun saveDrink(drink: Drink)
     }
 
     interface Presenter {
-        fun onUpdateList(context: Context)
-
+        fun onLoadList(context: Context)
+        fun onUpdateDetails(context: Context, idDrink: Int)
+        fun onLoadDetails(context: Context, idDrink: Int)
     }
 
 }
