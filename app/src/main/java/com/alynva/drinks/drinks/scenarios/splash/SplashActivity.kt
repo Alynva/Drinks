@@ -33,8 +33,14 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
         tv_splash_gif_text.text = "Summer drink YCH I\nby UszatyArbuz"
 
         val presenter : SplashContract.Presenter = SplashPresenter(this)
-        // TODO: carregar dados apenas se não existirem no banco de dados
-        presenter.onLoadData()
+
+        doAsync {
+            val drinkDao = AppDatabase.getInstance(this@SplashActivity).drinkDao()
+            if (drinkDao.hasSomething() <= 0)
+                presenter.onLoadData()
+            else
+                startMainActivity()
+        }
     }
 
     override fun saveList(drinks: List<Drink>) {
@@ -48,9 +54,7 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
             uiThread {
                 Toast.makeText(this@SplashActivity, "Lista salva", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
-                startActivity(intent)
-                this@SplashActivity.finish()
+                startMainActivity()
             }
         }
     }
@@ -65,6 +69,12 @@ class SplashActivity : AppCompatActivity(), SplashContract.View {
 
     override fun showLoader() {
         pb_loader.visibility = ProgressBar.VISIBLE
+    }
+
+    fun startMainActivity() {
+        val intent = Intent(this@SplashActivity, MainActivity::class.java)
+        startActivity(intent)
+        this@SplashActivity.finish()
     }
 
 }

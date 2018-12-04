@@ -11,6 +11,9 @@ interface DrinkDao {
     @Query("SELECT * from drink")
     fun getAll(): List<Drink>
 
+    @Query("SELECT COUNT() from drink LIMIT 1")
+    fun hasSomething(): Int
+
 //    @Update
 //    fun update(drink: Drink)
 //
