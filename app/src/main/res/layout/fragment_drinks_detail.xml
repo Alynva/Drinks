@@ -95,7 +95,6 @@
                 android:layout_marginBottom="25dp" />
 
             <TextView
-                android:text="strCaregory * strAlcoolic"
                 android:id="@+id/tv_drink_detail_date"
                 android:textAlignment="textEnd"
                 android:layout_width="match_parent"
