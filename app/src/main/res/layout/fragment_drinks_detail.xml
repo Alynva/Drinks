@@ -63,6 +63,22 @@
                 android:layout_marginBottom="20dp"/>
 
             <TextView
+                android:text="@string/glass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="#232F34"
+                android:layout_marginBottom="14dp" />
+            <TextView
+                android:id="@+id/tv_drink_detail_glass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp"
+                android:textColor="#232F34"
+                android:layout_marginBottom="30dp" />
+
+            <TextView
                 android:text="@string/instru_es"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +92,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="17dp"
                 android:textColor="#232F34"
-                android:layout_marginBottom="30dp" />
+                android:layout_marginBottom="25dp" />
+
+            <TextView
+                android:text="strCaregory * strAlcoolic"
+                android:id="@+id/tv_drink_detail_date"
+                android:textAlignment="textEnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"/>
 
         </LinearLayout>
     </LinearLayout>
