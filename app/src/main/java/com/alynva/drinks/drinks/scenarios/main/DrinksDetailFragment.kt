@@ -9,6 +9,7 @@ import android.view.ViewGroup
 
 import com.alynva.drinks.drinks.R
 import com.alynva.drinks.drinks.entities.Drink
+import com.alynva.drinks.drinks.entities.Ingredient
 import com.alynva.drinks.drinks.utils.GlideApp
 import kotlinx.android.synthetic.main.fragment_drinks_detail.*
 
