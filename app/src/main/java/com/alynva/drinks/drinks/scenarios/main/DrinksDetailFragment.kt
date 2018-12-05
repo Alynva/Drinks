@@ -3,6 +3,7 @@ package com.alynva.drinks.drinks.scenarios.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.alynva.drinks.drinks.entities.Drink
 import com.alynva.drinks.drinks.entities.Ingredient
 import com.alynva.drinks.drinks.utils.GlideApp
 import kotlinx.android.synthetic.main.fragment_drinks_detail.*
+import kotlinx.android.synthetic.main.fragment_drinks_list.*
 
 
 class DrinksDetailFragment : Fragment() {
@@ -51,6 +53,56 @@ class DrinksDetailFragment : Fragment() {
         tv_drink_detail_id.text = "#${drink.idDrink.toString()}"
         tv_drink_detail_cat_alco.text = "${drink.strCategory} • ${drink.strAlcoholic}"
         tv_drink_detail_instru.text = drink.strInstructions
+
+
+        val ingredients = listOf(
+                Ingredient(drink.strIngredient1!!,
+                        drink.strMeasure1!!),
+                Ingredient(drink.strIngredient2!!,
+                        drink.strMeasure2!!),
+                Ingredient(drink.strIngredient3!!,
+                        drink.strMeasure3!!),
+                Ingredient(drink.strIngredient4!!,
+                        drink.strMeasure4!!),
+                Ingredient(drink.strIngredient5!!,
+                        drink.strMeasure5!!),
+                Ingredient(drink.strIngredient6!!,
+                        drink.strMeasure6!!),
+                Ingredient(drink.strIngredient7!!,
+                        drink.strMeasure7!!),
+                Ingredient(drink.strIngredient8!!,
+                        drink.strMeasure8!!),
+                Ingredient(drink.strIngredient9!!,
+                        drink.strMeasure9!!),
+                Ingredient(drink.strIngredient10!!,
+                        drink.strMeasure10!!),
+                Ingredient(drink.strIngredient11!!,
+                        drink.strMeasure11!!),
+                Ingredient(drink.strIngredient12!!,
+                        drink.strMeasure12!!),
+                Ingredient(drink.strIngredient13!!,
+                        drink.strMeasure13!!),
+                Ingredient(drink.strIngredient14!!,
+                        drink.strMeasure14!!),
+                Ingredient(drink.strIngredient15!!,
+                        drink.strMeasure15!!)
+        )
+
+        loadIngredientsList(ingredients)
+
+    }
+
+    private fun loadIngredientsList(ingredients: List<Ingredient>) {
+
+        activity.let { that ->
+
+            val adapter = IngredientAdapter(ingredients)
+
+            val layoutManager = LinearLayoutManager(that)
+
+            rvIngredients.adapter = adapter
+            rvIngredients.layoutManager = layoutManager
+        }
 
     }
 

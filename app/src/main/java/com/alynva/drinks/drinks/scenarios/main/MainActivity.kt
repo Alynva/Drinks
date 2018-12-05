@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, DrinksListFragment.
                     .commit()
         } else {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.fmDetail, fragmentDetail)
+                    .replace(R.id.fmMaster, fragmentDetail)
                     .addToBackStack(null)
                     .commit()
         }
