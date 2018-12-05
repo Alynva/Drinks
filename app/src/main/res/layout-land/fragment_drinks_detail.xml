@@ -1,0 +1,83 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alynva.drinks.drinks.scenarios.main.DrinksDetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_drink_detail_img"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/no_image_icon_4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:text="strDrink"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:textFontWeight="700"
+                android:textColor="#232F34"
+                android:layout_marginTop="23dp"
+                android:id="@+id/tv_drink_detail_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="#idDrink"
+                android:textColor="#232F34"
+                android:id="@+id/tv_drink_detail_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"/>
+            <TextView
+                android:text="strCaregory * strAlcoolic"
+                android:id="@+id/tv_drink_detail_cat_alco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#232F34"
+                android:layout_marginVertical="24dp"/>
+            <TextView
+                android:text="@string/ingredientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="#232F34"
+                android:layout_marginBottom="14dp"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:text="@string/instru_es"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:textColor="#232F34"
+                android:layout_marginBottom="14dp" />
+            <TextView
+                android:id="@+id/tv_drink_detail_instru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp"
+                android:textColor="#232F34"
+                android:layout_marginBottom="30dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
